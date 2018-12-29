@@ -12,4 +12,4 @@ Cool pixel fire animation created in JavaFX
 3. Run `java -cp target/PixelFire-1.0-SNAPSHOT.jar com.lewisallen.fire.Main`
 
 
-Based off an excellent [blogpost](http://fabiensanglard.net/doom_fire_psx/) by Fabien Sanglards.
+Based off an excellent [blogpost](http://fabiensanglard.net/doom_fire_psx/) by Fabien Sanglard.
