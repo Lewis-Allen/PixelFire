@@ -1,6 +1,6 @@
 # Pixel Fire
 
-Doom-esque pixel fire animation created in JavaFX
+Doom-esque pixel fire animation created in JavaFX.
 
 ![](pixelfire.gif)
 
