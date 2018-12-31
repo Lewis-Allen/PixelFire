@@ -14,4 +14,4 @@ If you do not have Maven installed, use the wrapper commands (either mwnw.cmd fo
 
 ## Acknowledgements
 
-Based off an excellent [blogpost](http://fabiensanglard.net/doom_fire_psx/) by Fabien Sanglard.
+Based off an excellent [article](http://fabiensanglard.net/doom_fire_psx/) by Fabien Sanglard.
