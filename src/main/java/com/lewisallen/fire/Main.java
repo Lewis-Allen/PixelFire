@@ -10,11 +10,15 @@ import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import static java.lang.Thread.sleep;
+
 public class Main extends Application
 {
+    private final int FRAME_RATE = 120;
+    private final long MILLIS_PER_FRAME = 1000 / FRAME_RATE;
 
     private Color[] colours = new Color[37];
-    private int[][] screen = new int[512][256];
+    private int[][] screen = new int[512][300];
 
     @Override
     public void start(Stage primaryStage)
@@ -36,9 +40,15 @@ public class Main extends Application
         new AnimationTimer()
         {
             @Override
-            public void handle(long currentNanoTime){
+            public void handle(long now){
                 updateColours();
                 drawScreen(gc, pc);
+
+                try {
+                    Thread.sleep(MILLIS_PER_FRAME);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }.start();
 
@@ -116,17 +126,17 @@ public class Main extends Application
                 if(rand > 0.66)
                 {
                     if(screen[x][y+1] != 0)
-                        screen[x][y] = screen[x][y + 1] - ((int) Math.round(Math.random() * 100.0) & 1);
+                        screen[x][y] = screen[x][y + 1] - (Math.random() > 0.8 ? 1 : 0);
                 }
                 else if (rand > 0.33)
                 {
                     if(x < screen.length - 1 && screen[x+1][y+1] != 0)
-                        screen[x][y] = screen[x + 1][y + 1] - ((int) Math.round(Math.random() * 100.0) & 1);
+                        screen[x][y] = screen[x + 1][y + 1] - (Math.random() > 0.8 ? 1 : 0);
                 }
                 else
                 {
                     if(x > 1 && screen[x-1][y+1] != 0)
-                        screen[x][y] = screen[x - 1][y + 1] - ((int) Math.round(Math.random() * 100.0) & 1);
+                        screen[x][y] = screen[x - 1][y + 1] - (Math.random() > 0.8 ? 1 : 0);
                 }
             }
         }
